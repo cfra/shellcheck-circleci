@@ -2,20 +2,41 @@ version: 2.1
 orbs:
   docker-publish: circleci/docker-publish@0.1.6
 
+x-aliases:
+  docker-publish-args: &docker-publish-args
+    registry: $DOCKER_REGISTRY
+    image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
+  filter-only-develop: &filter-only-develop
+    filters:
+      branches:
+        only:
+          - develop
+  filter-except-develop: &filter-except-develop
+    filters:
+      branches:
+        ignore:
+          - develop
+  filter-only-tagged: &filter-only-tagged
+    filters:
+      branches:
+        ignore:
+          - /.*/
+      tags:
+        only:
+          - /.*/
+
 workflows:
   version: 2
   build:
     jobs:
-      - docker-publish/publish: &docker-publish-settings
-          registry: $DOCKER_REGISTRY
-          image: cfra/$CIRCLE_PROJECT_REPONAME
       - docker-publish/publish:
-          <<: *docker-publish-settings
+          <<: *docker-publish-args
+          <<: *filter-except-develop
+      - docker-publish/publish:
+          <<: *docker-publish-args
+          <<: *filter-only-develop
+          tag: latest
+      - docker-publish/publish:
+          <<: *docker-publish-args
+          <<: *filter-only-tagged
           tag: $CIRCLE_TAG
-          filters:
-            tags:
-              only:
-                - /.*/
-            branches:
-              ignore:
-                - /.*/

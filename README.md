@@ -12,6 +12,10 @@ This image is *not* maintained by CircleCI.
 This image can be used for running shellcheck in CircleCI. In contrast to the official image, this image
 also includes git and ssh, tools needed for CircleCI to run smoothly.
 
+## Tags
+
+The image built from the `develop` branch is always available when using `latest`.
+
 ## How to use this image
 
 The easiest way to make use of it is to use the official CircleCI [shellcheck-orb](https://circleci.com/orbs/registry/orb/circleci/shellcheck) and override its executor:
