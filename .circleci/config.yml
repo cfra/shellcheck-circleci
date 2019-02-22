@@ -6,6 +6,10 @@ x-aliases:
   docker-publish-args: &docker-publish-args
     registry: $DOCKER_REGISTRY
     image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
+    after_build:
+      - run:
+          name: Test generated image
+          command: ./test.sh
   filter-only-develop: &filter-only-develop
     filters:
       branches:
