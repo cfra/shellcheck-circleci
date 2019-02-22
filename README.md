@@ -24,7 +24,7 @@ orbs:
 executors:
   shellcheck-circleci:
     docker:
-      - image: cfra/shellcheck-circleci
+      - image: quay.io/cfra/shellcheck-circleci
 
 workflows:
   version: 2
