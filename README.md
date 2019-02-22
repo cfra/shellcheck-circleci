@@ -37,3 +37,21 @@ workflows:
       - shellcheck/check:
           executor: shellcheck-circleci
 ```
+
+## Development
+
+For development, you can build the image locally using:
+
+```console
+$ ./build.sh
+```
+
+This will build the image and tag it as `shellcheck-circleci:latest`.
+
+To validate the generated image, you can run:
+
+```console
+$ ./test
+```
+
+This will perform some basic tests on the image to see if shellcheck and git are working.
