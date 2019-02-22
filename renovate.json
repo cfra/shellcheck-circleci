@@ -1,0 +1,6 @@
+{
+  "extends": ["config:base", "docker:enableMajor"],
+  "circleci": {
+    "fileMatch": ["(^|/).circleci/config.yml$", "(^|/)src/.+\\.yml$"]
+  }
+}
