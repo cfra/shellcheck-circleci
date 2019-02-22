@@ -14,7 +14,9 @@ also includes git and ssh, tools needed for CircleCI to run smoothly.
 
 ## Tags
 
-The image built from the `develop` branch is always available when using `latest`.
+The latest released version is tagged as `2019.02.22.1`.
+
+The latest development version is tagged as `latest`.
 
 ## How to use this image
 
