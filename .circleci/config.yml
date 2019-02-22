@@ -30,13 +30,17 @@ workflows:
   build:
     jobs:
       - docker-publish/publish:
+          name: docker-build-branch
           <<: *docker-publish-args
           <<: *filter-except-develop
+          deploy: false
       - docker-publish/publish:
+          name: docker-build-and-publish-develop
           <<: *docker-publish-args
           <<: *filter-only-develop
           tag: latest
       - docker-publish/publish:
+          name: docker-build-and-publish-release
           <<: *docker-publish-args
           <<: *filter-only-tagged
           tag: $CIRCLE_TAG
