@@ -14,7 +14,7 @@ also includes git and ssh, tools needed for CircleCI to run smoothly.
 
 ## Tags
 
-The latest released version is tagged as `2019.02.22.1`.
+The latest released version is tagged as `2019.02.27.1`.
 
 The latest development version is tagged as `latest`.
 
