@@ -1,5 +1,5 @@
 FROM koalaman/shellcheck:latest@sha256:46e592bb3a24d6af3fda5b59ed5b43d7c834aa5e33ea3ae1fc83853eaa8750a3 as shellcheck
 
-FROM circleci/buildpack-deps:latest@sha256:5ea8ce1c6c060858f6479f46659fcc124d64a2a5f42420285dd8da8384ba3ea8
+FROM circleci/buildpack-deps:latest@sha256:d56e885483699ce18997077f96b26acd24ad20ac8a187022eb0183a793327e50
 
 COPY --from=shellcheck /bin/shellcheck /bin/shellcheck
