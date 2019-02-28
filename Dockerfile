@@ -1,5 +1,8 @@
-FROM koalaman/shellcheck:latest@sha256:46e592bb3a24d6af3fda5b59ed5b43d7c834aa5e33ea3ae1fc83853eaa8750a3 as shellcheck
+FROM koalaman/shellcheck-alpine:v0.6.0@sha256:7d4d712a2686da99d37580b4e2f45eb658b74e4b01caf67c1099adc294b96b52
 
-FROM circleci/buildpack-deps:latest@sha256:d56e885483699ce18997077f96b26acd24ad20ac8a187022eb0183a793327e50
-
-COPY --from=shellcheck /bin/shellcheck /bin/shellcheck
+# Install git and openssh-client for CircleCI
+RUN apk add \
+	--no-cache \
+	--no-progress \
+	--update \
+	git openssh-client

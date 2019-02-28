@@ -1,9 +1,10 @@
 # shellcheck-circleci
 
 [![CircleCI Build](https://circleci.com/gh/cfra/shellcheck-circleci.svg?style=shield)](https://circleci.com/gh/cfra/workflows/shellcheck-circleci "CircleCI Build")
-[![Calendar Versioning](https://img.shields.io/badge/calver-YYYY.0M.0D.MICRO-blue.svg)](http://calver.org/ "Calendar Versioning")
+[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovateapp.com/ "Renovate enabled")
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A Docker image for running [shellcheck](https://www.shellcheck.net/) on [CircleCI](https://circleci.com/).
+[Docker](https://www.docker.com) image for running [shellcheck](https://www.shellcheck.net/) on [CircleCI](https://circleci.com/).
 
 This image is *not* maintained by CircleCI.
 
@@ -12,11 +13,21 @@ This image is *not* maintained by CircleCI.
 This image can be used for running shellcheck in CircleCI. In contrast to the official image, this image
 also includes git and ssh, tools needed for CircleCI to run smoothly.
 
+## Repository
+
+The docker images are available in the [repository](https://quay.io/repository/cfra/shellcheck-circleci) at quay.
+
 ## Tags
 
-The latest released version is tagged as `2019.02.27.1`.
+The current released version is tagged `0.6.0`.
 
 The latest development version is tagged as `latest`.
+
+The releases will follow the upstream version, with an optional dash and number appended, if there
+are multiple releases per upstream version.
+
+So for example, the first release for upstream version `1.16.4` will be tagged `1.16.4`. If there
+is a second release for this upstream version, it will be tagged `1.16.4-1`.
 
 ## How to use this image
 
