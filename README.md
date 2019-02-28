@@ -1,4 +1,24 @@
-# shellcheck-circleci
+# Archived: shellcheck-circleci
+
+The solved with this docker image can actually be solved without it. There are `pre-steps`
+which can be specified for jobs when they are referenced in worflows:
+
+```yaml
+- shellcheck/check:
+    filters:
+      tags:
+        only:
+          - /.*/
+    pre-steps:
+      - run:
+          name: "Install git and SSH client"
+          command: |
+            apk add \
+                --update \
+                --no-progress \
+                git \
+                openssh-client
+```
 
 [![CircleCI Build](https://circleci.com/gh/cfra/shellcheck-circleci.svg?style=shield)](https://circleci.com/gh/cfra/workflows/shellcheck-circleci "CircleCI Build")
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovateapp.com/ "Renovate enabled")
